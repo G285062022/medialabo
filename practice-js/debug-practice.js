@@ -31,4 +31,3 @@ let obj2 = {
 	mem2: "abc"
 };
 console.log(obj2.mem0.x);   // obj2.mem0 は存在しない. さらにそのメンバー x を参照しようとする
-
