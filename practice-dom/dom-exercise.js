@@ -22,7 +22,6 @@ h2. insertAdjacentElement('afterend', p);
 
 // 練習4-3 写真表作成プログラム
 
-
 // 練習4-4 箇条書き削除プログラム
 
 
