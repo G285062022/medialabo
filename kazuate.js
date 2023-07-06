@@ -10,6 +10,7 @@ let b = document.querySelector('#print');
 b.addEventListener('click', hantei);
 
 
+
 // ボタンを押した後の処理をする関数 hantei() の定義
 function hantei() {
   let i = document.querySelector('input[name="yoso"]');
