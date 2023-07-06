@@ -1,4 +1,4 @@
-/*let data = {
+let data = {
   "coord": {
     "lon": 116.3972,
     "lat": 39.9075
@@ -43,7 +43,7 @@
   "id": 1816670,
   "name": "北京市",
   "cod": 200
-};*/
+};
 
 ////////// 課題3-2 ここからプログラムを書こう
 let b1 = document.querySelector('button#print');
