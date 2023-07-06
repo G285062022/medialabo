@@ -25,8 +25,8 @@ function hantei() {
     p1.textContent = ("答えは" + kotae +"でした．すでにゲームは終わっています");
     console.log("答えは" + kotae +"でした．すでにゲームは終わっています");
   }else if(kaisu==3 && kotae!=yoso){
-    p1.textContent = ("まちがい.残念でした答えは" + kotae +"です．"); 
-    console.log("まちがい.残念でした答えは" + kotae +"です．");
+    p1.textContent = ("ザンネーン答えは" + kotae +"です．"); 
+    console.log("ザンネーン答えは" + kotae +"です．");
   }else if(kaisu==3 && kotae==yoso ){
     p1.textContent = ("正解です.おめでとう!");
     console.log("正解です.おめでとう!");
@@ -35,13 +35,13 @@ function hantei() {
   }
   else{
     if (yoso > kotae) {
-      p1.textContent = ("まちがい.答えはもっと小さいですよ");
-        console.log("まちがい.答えはもっと小さいですよ");
+      p1.textContent = ("ザンネーン.答えはもっと小さいですよ");
+        console.log("ザンネーン.答えはもっと小さいですよ");
       }
     
     else if(yoso < kotae) {
-      p1.textContent = ("まちがい.答えはもっと大きいですよ");
-        console.log("まちがい.答えはもっと大きいですよ");
+      p1.textContent = ("ザンネーン.答えはもっと大きいですよ");
+        console.log("ザンネーン.答えはもっと大きいですよ");
       }
     
     else{
