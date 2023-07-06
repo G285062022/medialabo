@@ -22,22 +22,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (kaisu < 3) {
       if (yoso === kotae) {
-        SpanResult.textContent = '正解です。おめでとうございます！';
+        SpanResult.textContent = 'せいかーい。おめでとう！';
       } else {
         if (yoso < kotae) {
-          SpanResult.textContent = '残念！答えはもっと大きいです。';
+          SpanResult.textContent = 'ザンネーン！答えはもっと大きいよ。';
         } else {
-          SpanResult.textContent = '残念！答えはもっと小さいです。';
+          SpanResult.textContent = 'ザンネーン！答えはもっと小さいよ。';
         }
       }
     } else if (kaisu === 3) {
       if (yoso === kotae) {
-        SpanResult.textContent = '正解です。おめでとうございます！';
+        SpanResult.textContent = 'せいかーい。おめでとうございます！';
       } else {
-        SpanResult.textContent = '残念！答えは' + kotae + 'でした〜';
+        SpanResult.textContent = 'ザンネーン！答えは' + kotae + 'でした〜';
       }
     } else if (kaisu > 3) {
-      SpanResult.textContent = 'もうゲームは終わっています。答えは' + kotae + 'でした〜';
+      SpanResult.textContent = 'もうゲームは終わってるよ。答えは' + kotae + 'でした〜';
     }
     kaisu = kaisu + 1;
   });
