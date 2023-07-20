@@ -1,32 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>My test page</title>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="weather.js"></script>
-</head>
-<body>
-  <label for="basho">都市名：</label>
-  <input type="text" name="basho" id="basho">
-  <button id="print">Search</button>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+    <!-- Include the Axios library -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <!-- Add elements to display weather data -->
+    <p id="name"></p>
+    <p id="temp_max"></p>
+    <p id="temp_min"></p>
+    <p id="situ"></p>
 
-  <ul>
-    <li>世界の天気（検索結果1件）</li>
-    <ul>
-      <li>緯度: 116.3972</li>
-      <li>経度: 39.9075</li>
-      <li>天気: 曇りがち</li>
-      <li>最低気温: 9.94</li>
-      <li>最高気温 9.94</li>
-      <li>湿度: 14</li>
-      <li>風速: 2.65</li>
-      <li>風向: 197</li>
-      <li id="name">都市名: </li>
-      <li id="temp_max">最高気温: </li>
-      <li id="temp_min">最低気温: </li>
-      <li id="situ">湿度: </li>
-    </ul>
-  </ul>
-</body>
+    <!-- Add a button to trigger the weather data retrieval -->
+    <button id="print">Get Weather</button>
+
+    <!-- Add the weather.js script -->
+    <script src="weather.js"></script>
+  </body>
 </html>
