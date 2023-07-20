@@ -2,7 +2,7 @@ let b1 = document.querySelector('button#print');
 b1.addEventListener('click', iroiro);
 
 function iroiro() {
-  let cityId = document.querySelector('select#city-id').value;
+  let cityId = document.querySelector('input#city-id').value;
   let url = `https://www.nishita-lab.org/web-contents/jsons/openweather/${cityId}.json`;
 
   axios.get(url)
