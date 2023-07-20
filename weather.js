@@ -1,14 +1,14 @@
-let b1 = document.querySelector('button#print');
-b1.addEventListener('click', iroiro);
+let searchBtn = document.getElementById('search-btn');
+searchBtn.addEventListener('click', iroiro);
 
 function iroiro() {
-  let cityId = document.querySelector('input#city-id').value;
+  let cityId = document.getElementById('city-id').value;
   let url = `https://www.nishita-lab.org/web-contents/jsons/openweather/${cityId}.json`;
 
   axios.get(url)
-    .then(showResult)   // 通信成功
-    .catch(showError)   // 通信失敗
-    .then(finish);      // 通信の最後の処理
+    .then(showResult)
+    .catch(showError)
+    .then(finish);
 }
 
 function showResult(resp) {
