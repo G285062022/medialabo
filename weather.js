@@ -17,10 +17,8 @@ function showResult(resp) {
     data = JSON.parse(data);
   }
   console.log(data);
-  console.log(data.name);
-  console.log(data.main.temp_max);
-  console.log(data.main.temp_min);
 
+  // Display weather information
   let p1 = document.querySelector('p#name');
   p1.textContent = "都市名: " + data.name;
 
@@ -32,6 +30,22 @@ function showResult(resp) {
 
   let p4 = document.querySelector('p#situ');
   p4.textContent = "湿度: " + data.main.humidity + "% ";
+
+  // Additional weather information
+  let p5 = document.querySelector('p#lat');
+  p5.textContent = "緯度: " + data.coord.lat;
+
+  let p6 = document.querySelector('p#lon');
+  p6.textContent = "経度: " + data.coord.lon;
+
+  let p7 = document.querySelector('p#weather');
+  p7.textContent = "天気: " + data.weather[0].description;
+
+  let p8 = document.querySelector('p#wind_speed');
+  p8.textContent = "風速: " + data.wind.speed + " m/s";
+
+  let p9 = document.querySelector('p#wind_deg');
+  p9.textContent = "風向: " + data.wind.deg + "°";
 }
 
 function showError(err) {
