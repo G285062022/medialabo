@@ -23,7 +23,7 @@ function showResult(resp) {
   }
   console.log(data);
 
-  // Display weather information
+  
   let p1 = document.querySelector('p#name');
   p1.textContent = "都市名: " + data.name;
 
