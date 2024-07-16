@@ -3,102 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>警告</title>
+    <title>ウイルス警告</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f8f8f8;
-            color: #333;
+            background-color: #4a0808;
+            color: #ffffff;
             padding: 20px;
         }
         .container {
             max-width: 600px;
             margin: 0 auto;
-            background: white;
+            background: #7a2121;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
         .header {
-            background-color: #333;
+            background-color: #bf1d1d;
             color: white;
-            padding: 10px;
+            padding: 15px;
             border-radius: 10px 10px 0 0;
         }
         .header img {
-            height: 20px;
+            height: 30px;
             vertical-align: middle;
         }
         .header p {
             display: inline;
-            font-size: 1.2em;
+            font-size: 1.5em;
             margin-left: 10px;
         }
         .warning {
-            color: red;
-            font-size: 1.5em;
-            margin: 20px 0;
+            font-size: 2em;
+            margin: 30px 0;
         }
         .details {
             text-align: left;
+            color: #ffe5e5;
+            font-size: 1.2em;
+            line-height: 1.6;
         }
         .countdown {
-            font-size: 1.2em;
-            color: red;
+            font-size: 1.5em;
+            color: #ffe5e5;
             margin: 20px 0;
         }
         .button {
-            background-color: red;
+            background-color: #bf1d1d;
             color: white;
-            padding: 15px 25px;
+            padding: 20px 40px;
             border: none;
             border-radius: 5px;
-            font-size: 1em;
+            font-size: 1.2em;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
         .button:hover {
-            background-color: darkred;
+            background-color: #991d1d;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <img src="apple-logo.png" alt="Appleロゴ">
-            <p>Apple セキュリティ</p>
+            <img src="warning.png" alt="">
+            <p>重要なセキュリティ警告</p>
+            <img src="warning.png" alt="">
         </div>
         <div class="warning">
-            重要なお知らせです。あなたのデバイスは現在、トロイの木馬ウイルスに感染しています。
+            あなたのデバイスはウイルスに感染しています！
         </div>
         <div class="details">
-            <p>あなたの携帯電話のメモリは、すでに17%のダメージを受けています。早急な対応が必要です。</p>
-            <p>そうしないと、デバイスが欠陥品となり、アカウント、写真、支払いデータを含むすべてのデータが第三者に利用されてしまいます。</p>
-            <p>すぐにAppStoreから信頼できる無料アプリをインストールして、ウイルスを除去し、デバイスを保護してください。</p>
+            <p>このウイルスはあなたの個人データを盗み、デバイスを機能不全に追い込みます。</p>
+            <p>ただちに以下のリンクから無料のウイルス除去ツールをダウンロードしてください。</p>
+            <p>データ損失を避けるため、速やかに対処をお願いします。</p>
         </div>
-        <div class="countdown" id="countdown">1 minutes and 31 seconds</div>
-        <button class="button" onclick="removeVirus()">ウイルスの除去</button>
+        <div class="countdown" id="countdown">10</div>
     </div>
-    <script>
-        let countdown = 91; // 1分31秒
-
-        function updateCountdown() {
-            if (countdown > 0) {
-                const minutes = Math.floor(countdown / 60);
-                const seconds = countdown % 60;
-                document.getElementById('countdown').innerText = `${minutes} minutes and ${seconds} seconds`;
-                countdown--;
-            } else {
-                clearInterval(countdownInterval);
-                alert("騙されてしまいました。");
-            }
-        }
-
-        const countdownInterval = setInterval(updateCountdown, 1000);
-
-        function removeVirus() {
-            alert("騙されてしまいました。");
-        }
-    </script>
+    <script src="warning.js"></script>
 </body>
 </html>
