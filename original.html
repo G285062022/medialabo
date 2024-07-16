@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マルウェアの脅威とは？事例から学ぶデジタルセキュリティ</title>
+    <script src="dokkiri.js" defer></script>
+
+        <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: var(--primary-color);
+        }
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 1em;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5em;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 1.5em;
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
+        }
+        h3 {
+            font-size: 1.3em;
+            color: var(--secondary-color);
+        }
+        p {
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+        strong {
+            color: var(--secondary-color);
+        }
+        .case-study, .recommendation {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+        }
+        .case-study strong, .recommendation strong {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>マルウェアの脅威とは？<br>事例から学ぶセキュリティ</h1>
+        
+        <p>デジタル時代の今日、マルウェアは私たちの日常生活に潜む大きな脅威となっています。この記事では、具体的な事例を交えながら、マルウェアの種類、危険性、そして対策について詳しく解説します。</p>
+        
+        <h2>1. マルウェアとは</h2>
+        <p>マルウェアは「悪意のあるソフトウェア」の総称です。コンピューターやスマートフォンなどのデバイスに侵入し、様々な被害をもたらします。</p>
+        
+        <h2>2. 主なマルウェアの種類と事例</h2>
+        
+        <h3>a) ウイルス</h3>
+        <p><strong>定義：</strong>自己複製し、他のファイルに感染するプログラム。</p>
+        <div class="case-study">
+            <strong>事例：「ILOVEYOU」ウイルス（2000年）</strong>
+            <p>このウイルスは、「ILOVEYOU」という件名のメールで広まり、世界中で約500億ドルの被害を引き起こしました。メールを開くと、コンピューター内のファイルが上書きされ、パスワード情報が盗まれました。</p>
+        </div>
+        
+        <h3>b) ワーム</h3>
+        <p><strong>定義：</strong>ネットワークを介して自己複製するプログラム。</p>
+        <div class="case-study">
+            <strong>事例：モリスワーム（1988年）</strong>
+            <p>モリスワームは、インターネット全体の約10%に感染し、多くのコンピューターシステムを停止させました。これは初めての大規模なワーム攻撃として知られています。</p>
+        </div>
+
+        <h3>c) トロイの木馬</h3>
+        <p><strong>定義：</strong>有用なプログラムに見せかけて侵入し、バックドアを作成するマルウェア。</p>
+        <div class="case-study">
+            <strong>事例：Zeusトロイの木馬（2007年）</strong>
+            <p>Zeusは、主に銀行情報を盗むために使用され、世界中で数百万ドルの被害をもたらしました。</p>
+        </div>
+        
+        <h3>d) ランサムウェア</h3>
+        <p><strong>定義：</strong>データを暗号化し、復号のために身代金を要求するマルウェア。</p>
+        <div class="case-study">
+            <strong>事例：WannaCry（2017年）</strong>
+            <p>WannaCryは、数十万台のコンピューターを感染させ、重要なデータを暗号化しました。復号のためにビットコインでの身代金を要求し、多くの企業や組織に甚大な被害を与えました。</p>
+        </div>
+
+        <h3>e) スパイウェア</h3>
+        <p><strong>定義：</strong>ユーザーの行動を監視し、個人情報を盗むマルウェア。</p>
+        <div class="case-study">
+            <strong>事例：CoolWebSearch（2003年）</strong>
+            <p>CoolWebSearchは、ユーザーのブラウザ設定を変更し、ポップアップ広告を表示することで収益を上げるスパイウェアです。</p>
+        </div>
+        
+        <h2>3. マルウェアの危険性</h2>
+        <p>マルウェアは個人情報の盗難、金融被害、システムの損傷など、多くの危険をもたらします。感染すると、以下のような影響が考えられます。</p>
+        <ul>
+            <li><strong>データの損失：</strong>重要なファイルが破壊されたり、暗号化される。</li>
+            <li><strong>個人情報の漏洩：</strong>パスワードやクレジットカード情報が盗まれる。</li>
+            <li><strong>経済的被害：</strong>身代金要求や不正取引による金銭的損失。</li>
+            <li><strong>システムの停止：</strong>ネットワークやデバイスが使用不能になる。</li>
+        </ul>
+
+        <h2>4. マルウェアから身を守るための具体的な対策</h2>
+        
+        <h3>a) ウイルス対策ソフトの導入</h3>
+        <div class="recommendation">
+            <strong>推奨：</strong>
+            <p>Norton、McAfee、Kasperskyなどの信頼できるセキュリティソフトを使用し、定期的にスキャンを実行しましょう。</p>
+        </div>
+        
+        <h3>b) ソフトウェアの更新</h3>
+        <div class="recommendation">
+            <strong>推奨：</strong>
+            <p>オペレーティングシステムやアプリケーションの更新を怠らず、最新のセキュリティパッチを適用しましょう。</p>
+        </div>
+
+        <h3>c) 不審なリンクや添付ファイルの警戒</h3>
+        <div class="recommendation">
+            <strong>推奨：</strong>
+            <p>不審なメールやメッセージに含まれるリンクや添付ファイルを開かないように注意しましょう。</p>
+        </div>
+        
+        <h3>d) バックアップの実施</h3>
+        <div class="recommendation">
+            <strong>推奨：</strong>
+            <p>重要なデータは定期的にバックアップを取り、ランサムウェアの攻撃に備えましょう。</p>
+        </div>
+        
+        <h2>結論</h2>
+        <p>マルウェアの脅威は日々進化し続けています。しかし、適切な対策と継続的な警戒があれば、そのリスクを大幅に軽減することができます。この記事で紹介した事例や対策を参考に、自身のデジタルセキュリティを見直してみてください。</p>
+        <p>安全なデジタルライフは、一人一人の意識と行動から始まります。常に最新の情報を入手し、セキュリティ対策を習慣化することで、マルウェアの脅威から自身を守りましょう。</p>
+    </div>
+
+    <div id="warning-placeholder" class="hidden"></div>
+</body>
+</html>
