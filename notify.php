@@ -1,5 +1,5 @@
 <?php
-    $to = 'your-email@example.com'; // あなたのメールアドレスに変更
+    $to = '228506@st.takushoku-u.ac.jp'; // あなたのメールアドレスに変更
     $subject = 'ドッキリページが開かれました';
     $message = 'ドッキリページが開かれました。すぐに確認してください。';
     $headers = 'From: no-reply@example.com' . "\r\n" .
