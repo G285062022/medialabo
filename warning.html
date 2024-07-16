@@ -19,12 +19,14 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            position: relative;
         }
         .header {
             background-color: #bf1d1d;
             color: white;
             padding: 15px;
             border-radius: 10px 10px 0 0;
+            position: relative;
         }
         .header img {
             height: 30px;
@@ -50,18 +52,18 @@
             color: #ffe5e5;
             margin: 20px 0;
         }
-        .button {
-            background-color: #bf1d1d;
-            color: white;
-            padding: 20px 40px;
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
             border: none;
-            border-radius: 5px;
-            font-size: 1.2em;
+            font-size: 1.5em;
+            color: white;
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
-        .button:hover {
-            background-color: #991d1d;
+        .close-button:hover {
+            color: #ff0000;
         }
     </style>
 </head>
@@ -71,6 +73,7 @@
             <img src="warning.png" alt="">
             <p>重要なセキュリティ警告</p>
             <img src="warning.png" alt="">
+            <button id="closeButton" class="close-button">&times;</button>
         </div>
         <div class="warning">
             あなたのデバイスはウイルスに感染しています！
