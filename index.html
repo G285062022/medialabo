@@ -11,7 +11,6 @@
 <body>
     <h1>WebサーバとHTMLに関する問題</h1>
 
-    <!-- 1-1 記述問題 -->
     <h2>1-1 記述式</h2>
     <p>次の空欄に当てはまる言葉を埋めなさい。</p>
     <ul>
@@ -21,195 +20,217 @@
         <li>WebブラウザはHTMLを解釈して <input type="text" id="q1-1-5"> を行う。</li>
     </ul>
 
-    <!-- 2-1 選択式 -->
-    <h2>2-1 選択問題</h2>
+    <h2>2-1 選択式</h2>
     <p>次の文章の空欄部分に当てはまる言葉を、解答群から選びなさい。</p>
-    <p>“HTMLのタグは「<input type="text" id="q2-1-1">」、「<input type="text" id="q2-1-2">」、「<input type="text" id="q2-1-3">」の順で記述します。この「<input type="text" id="q2-1-4">」から「<input type="text" id="q2-1-3">」までの部分を「<input type="text" id="q2-1-5">」と呼びます。“</p>
-    <ul>
-        <li>A.要素</li>
-        <li>B.開始タグ</li>
-        <li>C.終了タグ</li>
-        <li>D.内容</li>
-    </ul>
+    <p>“HTMLのタグは「<select id="q2-1-1">
+        <option value="">選択してください</option>
+        <option value="B">開始タグ</option>
+        <option value="D">内容</option>
+        <option value="C">終了タグ</option>
+        <option value="A">要素</option>
+    </select>」、「<select id="q2-1-2">
+        <option value="">選択してください</option>
+        <option value="B">開始タグ</option>
+        <option value="D">内容</option>
+        <option value="C">終了タグ</option>
+        <option value="A">要素</option>
+    </select>」、「<select id="q2-1-3">
+        <option value="">選択してください</option>
+        <option value="B">開始タグ</option>
+        <option value="D">内容</option>
+        <option value="C">終了タグ</option>
+        <option value="A">要素</option>
+    </select>」の順で記述します。この「①」から「③」までの部分を「<select id="q2-1-4">
+        <option value="">選択してください</option>
+        <option value="B">開始タグ</option>
+        <option value="D">内容</option>
+        <option value="C">終了タグ</option>
+        <option value="A">要素</option>
+    </select>」と呼びます。”</p>
 
-    <!-- 2-2 選択式 -->
-    <h2>2-2 選択問題</h2>
+    <h2>2-2 選択式</h2>
     <p>次の文章の空欄部分に当てはまる言葉を、解答群から選びなさい。</p>
-    <p>“属性は「<input type="text" id="q2-2-1">」と「<input type="text" id="q2-2-2">」で構成され、「<input type="text" id="q2-2-1">」と「<input type="text" id="q2-2-2">」は「<input type="text" id="q2-2-3">」で結ばれます。ただし、「<input type="text" id="q2-2-2">」は「<input type="text" id="q2-2-4">」で括られます。”</p>
-    <ul>
-        <li>A.半角スペース</li>
-        <li>B.属性名</li>
-        <li>C.属性値</li>
-        <li>D.=</li>
-        <li>E.==</li>
-        <li>F.カギ括弧</li>
-        <li>G.ダブルクオート</li>
-    </ul>
+    <p>“属性は「<select id="q2-2-1">
+        <option value="">選択してください</option>
+        <option value="B">属性名</option>
+        <option value="C">属性値</option>
+    </select>」と「<select id="q2-2-2">
+        <option value="">選択してください</option>
+        <option value="B">属性名</option>
+        <option value="C">属性値</option>
+    </select>」で構成され、「①」と「②」は「<select id="q2-2-3">
+        <option value="">選択してください</option>
+        <option value="D">=</option>
+        <option value="E">==</option>
+    </select>」で結ばれます。ただし、「②」は「<select id="q2-2-4">
+        <option value="">選択してください</option>
+        <option value="F">カギ括弧</option>
+        <option value="G">ダブルクオート</option>
+    </select>」で括られます。”</p>
 
-    <!-- 2-3 または 2-4 問題 -->
-    <h2>2-3 または 2-4 問題</h2>
-    <div id="question-container"></div>
-
-    <button onclick="checkAnswers()">解答を提出</button>
-
-    <div id="result"></div>
-
-    <script>
-        // localStorageを使用して回数を管理
-        let count = localStorage.getItem("questionCount") || 0;
-        count = parseInt(count) + 1;
-        localStorage.setItem("questionCount", count);
-
-        // 1-1の正解
-        const answers1_1 = {
-            "q1-1-1": "リクエスト",
-            "q1-1-2": "レスポンス",
-            "q1-1-3": "HTML",
-            "q1-1-4": "HyperText Markup Language",
-            "q1-1-5": "表示"
-        };
-
-        // 2-1の正解
-        const answers2_1 = {
-            "q2-1-1": "B",
-            "q2-1-2": "C",
-            "q2-1-3": "A",
-            "q2-1-4": "D"
-        };
-
-        // 2-2の正解
-        const answers2_2 = {
-            "q2-2-1": "B",
-            "q2-2-2": "C",
-            "q2-2-3": "A",
-            "q2-2-4": "F"
-        };
-
-        // 2-3の正解
-        const answers2_3 = {
-            "q2-3-1": "html",
-            "q2-3-2": "ja",
-            "q2-3-3": "utf-8",
-            "q2-3-4": "title",
-            "q2-3-5": "body",
-            "q2-3-6": "img",
-            "q2-3-7": "a"
-        };
-
-        // 2-4の正解
-        const answers2_4 = {
-            "q2-4-1": "html",
-            "q2-4-2": "ja",
-            "q2-4-3": "meta",
-            "q2-4-4": "charset",
-            "q2-4-5": "src",
-            "q2-4-6": "href"
-        };
-
-        // 2-3または2-4の問題を表示
-        function loadQuestion() {
-            const isOdd = count % 2 === 1;
-            const container = document.getElementById("question-container");
-            container.innerHTML = isOdd ? getQuestion2_3() : getQuestion2_4();
-        }
-
-        // 2-3の問題
-        function getQuestion2_3() {
-            return `<pre>
-&lt;!DOCTYPE <input type="text" id="q2-3-1"> &gt;
-&lt;html lang="<input type="text" id="q2-3-2">" &gt;
-&lt;head&gt;
-    &lt;meta charset="<input type="text" id="q2-3-3">" &gt;
-    &lt;<input type="text" id="q2-3-4"> &gt;タイトル&lt;/<input type="text" id="q2-3-4"> &gt;
-&lt;/head&gt;
-&lt;<input type="text" id="q2-3-5"> &gt;
-    &lt;img src="http://www.takushoku-u.ac.jp/common/images/logo.png" alt="拓殖大学" &gt;
-    拓殖大学のWebページは&lt;a href="http://www.takushoku-u.ac.jp/"&gt;こちら&lt;/a&gt;です。
-&lt;/<input type="text" id="q2-3-5"> &gt;
-&lt;/html&gt;
-</pre>`;
-        }
-
-        // 2-4の問題
-        function getQuestion2_4() {
-            return `<pre>
-&lt;<input type="text" id="q2-4-1"> html&gt;
-&lt;<input type="text" id="q2-4-2"> lang="ja"&gt;
-&lt;head&gt;
-    &lt;meta <input type="text" id="q2-4-3"> charset="<input type="text" id="q2-4-4">"&gt;
-    &lt;title&gt;タイトル&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;img <input type="text" id="q2-4-5">="http://www.takushoku-u.ac.jp/common/images/logo.png" alt="拓殖大学"&gt;
-    &lt;p&gt;拓殖大学のWebページは&lt;a <input type="text" id="q2-4-6">="http://www.takushoku-u.ac.jp/"&gt;こちら&lt;/a&gt;です。&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</pre>`;
-        }
-
-        // 解答のチェック
-        function checkAnswers() {
-            const resultDiv = document.getElementById("result");
-            resultDiv.innerHTML = "<h2>結果</h2>";
-            let correctCount = 0;
-            let wrongCount = 0;
-
-            // 1-1のチェック
-            for (const [key, value] of Object.entries(answers1_1)) {
-                const userAnswer = document.getElementById(key).value.trim();
-                if (userAnswer === value) {
-                    correctCount++;
-                    resultDiv.innerHTML += `<p>${key}: <span class="correct">正解</span></p>`;
-                } else {
-                    wrongCount++;
-                    resultDiv.innerHTML += `<p>${key}: <span class="incorrect">不正解 (正解: ${value})</span></p>`;
-                }
+        <!-- 2-3 または 2-4 問題 -->
+        <h2>2-3 または 2-4 問題</h2>
+        <div id="question-container"></div>
+    
+        <button onclick="checkAnswers()">解答を提出</button>
+    
+        <div id="result"></div>
+    
+        <script>
+            // localStorageを使用して回数を管理
+            let count = localStorage.getItem("questionCount") || 0;
+            count = parseInt(count) + 1;
+            localStorage.setItem("questionCount", count);
+    
+            // 1-1の正解
+            const answers1_1 = {
+                "q1-1-1": "リクエスト",
+                "q1-1-2": "レスポンス",
+                "q1-1-3": "HTML",
+                "q1-1-4": "HyperText Markup Language",
+                "q1-1-5": "表示"
+            };
+    
+            // 2-1の正解
+            const answers2_1 = {
+                "q2-1-1": "B",
+                "q2-1-2": "D",
+                "q2-1-3": "C",
+                "q2-1-4": "A"
+            };
+    
+            // 2-2の正解
+            const answers2_2 = {
+                "q2-2-1": "B",
+                "q2-2-2": "C",
+                "q2-2-3": "D",
+                "q2-2-4": "G"
+            };
+    
+            // 2-3の正解
+            const answers2_3 = {
+                "q2-3-1": "html",
+                "q2-3-2": "ja",
+                "q2-3-3": "utf-8",
+                "q2-3-4": "title",
+                "q2-3-5": "body",
+                "q2-3-6": "img",
+                "q2-3-7": "a"
+            };
+    
+            // 2-4の正解
+            const answers2_4 = {
+                "q2-4-1": "html",
+                "q2-4-2": "ja",
+                "q2-4-3": "meta",
+                "q2-4-4": "charset",
+                "q2-4-5": "src",
+                "q2-4-6": "href"
+            };
+    
+            // 2-3または2-4の問題を表示
+            function loadQuestion() {
+                const isOdd = count % 2 === 1;
+                const container = document.getElementById("question-container");
+                container.innerHTML = isOdd ? getQuestion2_3() : getQuestion2_4();
             }
-
-            // 2-1のチェック
-            for (const [key, value] of Object.entries(answers2_1)) {
-                const userAnswer = document.getElementById(key).value.trim();
-                if (userAnswer === value) {
-                    correctCount++;
-                    resultDiv.innerHTML += `<p>${key}: <span class="correct">正解</span></p>`;
-                } else {
-                    wrongCount++;
-                    resultDiv.innerHTML += `<p>${key}: <span class="incorrect">不正解 (正解: ${value})</span></p>`;
-                }
+    
+            // 2-3の問題
+            function getQuestion2_3() {
+                return `<pre>
+    &lt;!DOCTYPE <input type="text" id="q2-3-1"> &gt;
+    &lt;html lang="<input type="text" id="q2-3-2">" &gt;
+    &lt;head&gt;
+        &lt;meta charset="<input type="text" id="q2-3-3">" &gt;
+        &lt;<input type="text" id="q2-3-4"> &gt;タイトル&lt;/<input type="text" id="q2-3-4"> &gt;
+    &lt;/head&gt;
+    &lt;<input type="text" id="q2-3-5"> &gt;
+        &lt;img src="http://www.takushoku-u.ac.jp/common/images/logo.png" alt="拓殖大学" &gt;
+        拓殖大学のWebページは&lt;a href="http://www.takushoku-u.ac.jp/"&gt;こちら&lt;/a&gt;です。
+    &lt;/<input type="text" id="q2-3-5"> &gt;
+    &lt;/html&gt;
+    </pre>`;
             }
-
-            // 2-2のチェック
-            for (const [key, value] of Object.entries(answers2_2)) {
-                const userAnswer = document.getElementById(key).value.trim();
-                if (userAnswer === value) {
-                    correctCount++;
-                    resultDiv.innerHTML += `<p>${key}: <span class="correct">正解</span></p>`;
-                } else {
-                    wrongCount++;
-                    resultDiv.innerHTML += `<p>${key}: <span class="incorrect">不正解 (正解: ${value})</span></p>`;
-                }
+    
+            // 2-4の問題
+            function getQuestion2_4() {
+                return `<pre>
+    &lt;<input type="text" id="q2-4-1"> html&gt;
+    &lt;<input type="text" id="q2-4-2"> lang="ja"&gt;
+    &lt;head&gt;
+        &lt;meta <input type="text" id="q2-4-3"> charset="<input type="text" id="q2-4-4">"&gt;
+        &lt;title&gt;タイトル&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;img <input type="text" id="q2-4-5">="http://www.takushoku-u.ac.jp/common/images/logo.png" alt="拓殖大学"&gt;
+        &lt;p&gt;拓殖大学のWebページは&lt;a <input type="text" id="q2-4-6">="http://www.takushoku-u.ac.jp/"&gt;こちら&lt;/a&gt;です。&lt;/p&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    </pre>`;
             }
-
-            // 2-3または2-4のチェック
-            const isOdd = count % 2 === 1;
-            const answersToCheck = isOdd ? answers2_3 : answers2_4;
-            for (const [key, value] of Object.entries(answersToCheck)) {
-                const userAnswer = document.getElementById(key).value.trim();
-                if (userAnswer === value) {
-                    correctCount++;
-                    resultDiv.innerHTML += `<p>${key}: <span class="correct">正解</span></p>`;
-                } else {
-                    wrongCount++;
-                    resultDiv.innerHTML += `<p>${key}: <span class="incorrect">不正解 (正解: ${value})</span></p>`;
+    
+            // 解答のチェック
+            function checkAnswers() {
+                const resultDiv = document.getElementById("result");
+                resultDiv.innerHTML = "<h2>結果</h2>";
+                let correctCount = 0;
+                let wrongCount = 0;
+    
+                // 1-1のチェック
+                for (const [key, value] of Object.entries(answers1_1)) {
+                    const userAnswer = document.getElementById(key).value.trim();
+                    if (userAnswer === value) {
+                        correctCount++;
+                        resultDiv.innerHTML += `<p>${key}: <span class="correct">正解</span></p>`;
+                    } else {
+                        wrongCount++;
+                        resultDiv.innerHTML += `<p>${key}: <span class="incorrect">不正解 (正解: ${value})</span></p>`;
+                    }
                 }
+    
+                // 2-1のチェック
+                for (const [key, value] of Object.entries(answers2_1)) {
+                    const userAnswer = document.getElementById(key).value.trim();
+                    if (userAnswer === value) {
+                        correctCount++;
+                        resultDiv.innerHTML += `<p>${key}: <span class="correct">正解</span></p>`;
+                    } else {
+                        wrongCount++;
+                        resultDiv.innerHTML += `<p>${key}: <span class="incorrect">不正解 (正解: ${value})</span></p>`;
+                    }
+                }
+    
+                // 2-2のチェック
+                for (const [key, value] of Object.entries(answers2_2)) {
+                    const userAnswer = document.getElementById(key).value.trim();
+                    if (userAnswer === value) {
+                        correctCount++;
+                        resultDiv.innerHTML += `<p>${key}: <span class="correct">正解</span></p>`;
+                    } else {
+                        wrongCount++;
+                        resultDiv.innerHTML += `<p>${key}: <span class="incorrect">不正解 (正解: ${value})</span></p>`;
+                    }
+                }
+    
+                // 2-3または2-4のチェック
+                const isOdd = count % 2 === 1;
+                const answersToCheck = isOdd ? answers2_3 : answers2_4;
+                for (const [key, value] of Object.entries(answersToCheck)) {
+                    const userAnswer = document.getElementById(key).value.trim();
+                    if (userAnswer === value) {
+                        correctCount++;
+                        resultDiv.innerHTML += `<p>${key}: <span class="correct">正解</span></p>`;
+                    } else {
+                        wrongCount++;
+                        resultDiv.innerHTML += `<p>${key}: <span class="incorrect">不正解 (正解: ${value})</span></p>`;
+                    }
+                }
+    
+                resultDiv.innerHTML += `<h3>正解数: ${correctCount} / ${correctCount + wrongCount}</h3>`;
             }
-
-            resultDiv.innerHTML += `<h3>正解数: ${correctCount} / ${correctCount + wrongCount}</h3>`;
-        }
-
-        // 問題を読み込む
-        loadQuestion();
-    </script>
-    <a href="index2.html">次のページへ</a>
+    
+            // 問題を読み込む
+            loadQuestion();
+        </script>
+        <a href="index2.html">次のページへ</a>
 </body>
-</html>
