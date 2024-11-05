@@ -120,10 +120,10 @@
     
             // 2-4の正解
             const answers2_4 = {
-                "q2-4-1": "html",
-                "q2-4-2": "ja",
-                "q2-4-3": "meta",
-                "q2-4-4": "charset",
+                "q2-4-1": "!DOCTYPE",
+                "q2-4-2": "html",
+                "q2-4-3": "head",
+                "q2-4-4": "meta",
                 "q2-4-5": "src",
                 "q2-4-6": "href"
             };
@@ -145,8 +145,8 @@
         &lt;<input type="text" id="q2-3-4"> &gt;タイトル&lt;/<input type="text" id="q2-3-4"> &gt;
     &lt;/head&gt;
     &lt;<input type="text" id="q2-3-5"> &gt;
-        &lt;img src="http://www.takushoku-u.ac.jp/common/images/logo.png" alt="拓殖大学" &gt;
-        拓殖大学のWebページは&lt;a href="http://www.takushoku-u.ac.jp/"&gt;こちら&lt;/a&gt;です。
+        &lt;<input type="text" id="q2-3-6"> src="http://www.takushoku-u.ac.jp/common/images/logo.png" alt="拓殖大学" &gt;
+        拓殖大学のWebページは&lt;<input type="text" id="q2-3-7">  href="http://www.takushoku-u.ac.jp/"&gt;こちら&lt;/<input type="text" id="q2-3-7"> &gt;です。
     &lt;/<input type="text" id="q2-3-5"> &gt;
     &lt;/html&gt;
     </pre>`;
@@ -157,10 +157,10 @@
                 return `<pre>
     &lt;<input type="text" id="q2-4-1"> html&gt;
     &lt;<input type="text" id="q2-4-2"> lang="ja"&gt;
-    &lt;head&gt;
-        &lt;meta <input type="text" id="q2-4-3"> charset="<input type="text" id="q2-4-4">"&gt;
+    &lt;<input type="text" id="q2-4-3">&gt;
+        &lt; <input type="text" id="q2-4-4"> charset="utf-8"&gt;
         &lt;title&gt;タイトル&lt;/title&gt;
-    &lt;/head&gt;
+    &lt;/<input type="text" id="q2-4-3">&gt;
     &lt;body&gt;
         &lt;img <input type="text" id="q2-4-5">="http://www.takushoku-u.ac.jp/common/images/logo.png" alt="拓殖大学"&gt;
         &lt;p&gt;拓殖大学のWebページは&lt;a <input type="text" id="q2-4-6">="http://www.takushoku-u.ac.jp/"&gt;こちら&lt;/a&gt;です。&lt;/p&gt;
