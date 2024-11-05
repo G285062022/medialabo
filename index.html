@@ -2,171 +2,134 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>マルウェアの脅威とは？事例から学ぶデジタルセキュリティ</title>
-    <script src="dokkiri.js" defer></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // ページが読み込まれたら通知を送信する
-            fetch('notify.php')
-                .then(response => response.text())
-                .then(data => console.log(data))
-                .catch(error => console.error('Error:', error));
-        });
-    </script>
-    
-
-        <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --background-color: #ecf0f1;
-            --text-color: #34495e;
-        }
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            margin: 0;
-            padding: 0;
-        }
-        .content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        h1, h2, h3 {
-            color: var(--primary-color);
-        }
-        h1 {
-            font-size: 2.5em;
-            text-align: center;
-            margin-bottom: 1em;
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 0.5em;
-        }
-        h2 {
-            font-size: 1.8em;
-            margin-top: 1.5em;
-            border-left: 5px solid var(--secondary-color);
-            padding-left: 15px;
-        }
-        h3 {
-            font-size: 1.3em;
-            color: var(--secondary-color);
-        }
-        p {
-            margin-bottom: 1em;
-            text-align: justify;
-        }
-        strong {
-            color: var(--secondary-color);
-        }
-        .case-study, .recommendation {
-            background-color: #f8f9fa;
-            border-left: 4px solid var(--secondary-color);
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 0 5px 5px 0;
-        }
-        .case-study strong, .recommendation strong {
-            display: block;
-            margin-bottom: 10px;
-        }
-        .hidden {
-            display: none;
-        }
+    <title>WebサーバとHTMLに関する問題</title>
+    <style>
+        .correct { color: green; }
+        .incorrect { color: red; }
     </style>
 </head>
 <body>
-    <div class="content">
-        <h1>マルウェアの脅威とは？<br>事例から学ぶセキュリティ</h1>
-        
-        <p>デジタル時代の今日、マルウェアは私たちの日常生活に潜む大きな脅威となっています。この記事では、具体的な事例を交えながら、マルウェアの種類、危険性、そして対策について詳しく解説します。</p>
-        
-        <h2>1. マルウェアとは</h2>
-        <p>マルウェアは「悪意のあるソフトウェア」の総称です。コンピューターやスマートフォンなどのデバイスに侵入し、様々な被害をもたらします。</p>
-        
-        <h2>2. 主なマルウェアの種類と事例</h2>
-        
-        <h3>a) ウイルス</h3>
-        <p><strong>定義：</strong>自己複製し、他のファイルに感染するプログラム。</p>
-        <div class="case-study">
-            <strong>事例：「ILOVEYOU」ウイルス（2000年）</strong>
-            <p>このウイルスは、「ILOVEYOU」という件名のメールで広まり、世界中で約500億ドルの被害を引き起こしました。メールを開くと、コンピューター内のファイルが上書きされ、パスワード情報が盗まれました。</p>
-        </div>
-        
-        <h3>b) ワーム</h3>
-        <p><strong>定義：</strong>ネットワークを介して自己複製するプログラム。</p>
-        <div class="case-study">
-            <strong>事例：モリスワーム（1988年）</strong>
-            <p>モリスワームは、インターネット全体の約10%に感染し、多くのコンピューターシステムを停止させました。これは初めての大規模なワーム攻撃として知られています。</p>
-        </div>
+    <h1>WebサーバとHTMLに関する問題</h1>
 
-        <h3>c) トロイの木馬</h3>
-        <p><strong>定義：</strong>有用なプログラムに見せかけて侵入し、バックドアを作成するマルウェア。</p>
-        <div class="case-study">
-            <strong>事例：Zeusトロイの木馬（2007年）</strong>
-            <p>Zeusは、主に銀行情報を盗むために使用され、世界中で数百万ドルの被害をもたらしました。</p>
-        </div>
-        
-        <h3>d) ランサムウェア</h3>
-        <p><strong>定義：</strong>データを暗号化し、復号のために身代金を要求するマルウェア。</p>
-        <div class="case-study">
-            <strong>事例：WannaCry（2017年）</strong>
-            <p>WannaCryは、数十万台のコンピューターを感染させ、重要なデータを暗号化しました。復号のためにビットコインでの身代金を要求し、多くの企業や組織に甚大な被害を与えました。</p>
-        </div>
+    <h2>1-1 記述式</h2>
+    <p>次の空欄に当てはまる言葉を埋めなさい。</p>
+    <ul>
+        <li>WebクライアントからWebサーバに出す要求のことを <input type="text" id="q1-1-1"> といい、WebサーバからWebクライアントに行う応答を <input type="text" id="q1-1-2"> という。</li>
+        <li>Webサーバは、<input type="text" id="q1-1-3"> や画像などを提供する。</li>
+        <li>HTMLは <input type="text" id="q1-1-4"> の略である。</li>
+        <li>WebブラウザはHTMLを解釈して <input type="text" id="q1-1-5"> を行う。</li>
+    </ul>
 
-        <h3>e) スパイウェア</h3>
-        <p><strong>定義：</strong>ユーザーの行動を監視し、個人情報を盗むマルウェア。</p>
-        <div class="case-study">
-            <strong>事例：CoolWebSearch（2003年）</strong>
-            <p>CoolWebSearchは、ユーザーのブラウザ設定を変更し、ポップアップ広告を表示することで収益を上げるスパイウェアです。</p>
-        </div>
-        
-        <h2>3. マルウェアの危険性</h2>
-        <p>マルウェアは個人情報の盗難、金融被害、システムの損傷など、多くの危険をもたらします。感染すると、以下のような影響が考えられます。</p>
-        <ul>
-            <li><strong>データの損失：</strong>重要なファイルが破壊されたり、暗号化される。</li>
-            <li><strong>個人情報の漏洩：</strong>パスワードやクレジットカード情報が盗まれる。</li>
-            <li><strong>経済的被害：</strong>身代金要求や不正取引による金銭的損失。</li>
-            <li><strong>システムの停止：</strong>ネットワークやデバイスが使用不能になる。</li>
-        </ul>
+    <h2>2-1 選択式</h2>
+    <p>次の文章の空欄部分に当てはまる言葉を、解答群から選びなさい。</p>
+    <p>“HTMLのタグは「<select id="q2-1-1">
+        <option value="">選択してください</option>
+        <option value="B">開始タグ</option>
+        <option value="D">内容</option>
+        <option value="C">終了タグ</option>
+        <option value="A">要素</option>
+    </select>」、「<select id="q2-1-2">
+        <option value="">選択してください</option>
+        <option value="B">開始タグ</option>
+        <option value="D">内容</option>
+        <option value="C">終了タグ</option>
+        <option value="A">要素</option>
+    </select>」、「<select id="q2-1-3">
+        <option value="">選択してください</option>
+        <option value="B">開始タグ</option>
+        <option value="D">内容</option>
+        <option value="C">終了タグ</option>
+        <option value="A">要素</option>
+    </select>」の順で記述します。この「①」から「③」までの部分を「<select id="q2-1-4">
+        <option value="">選択してください</option>
+        <option value="B">開始タグ</option>
+        <option value="D">内容</option>
+        <option value="C">終了タグ</option>
+        <option value="A">要素</option>
+    </select>」と呼びます。”</p>
 
-        <h2>4. マルウェアから身を守るための具体的な対策</h2>
-        
-        <h3>a) ウイルス対策ソフトの導入</h3>
-        <div class="recommendation">
-            <strong>推奨：</strong>
-            <p>Norton、McAfee、Kasperskyなどの信頼できるセキュリティソフトを使用し、定期的にスキャンを実行しましょう。</p>
-        </div>
-        
-        <h3>b) ソフトウェアの更新</h3>
-        <div class="recommendation">
-            <strong>推奨：</strong>
-            <p>オペレーティングシステムやアプリケーションの更新を怠らず、最新のセキュリティパッチを適用しましょう。</p>
-        </div>
+    <h2>2-2 選択式</h2>
+    <p>次の文章の空欄部分に当てはまる言葉を、解答群から選びなさい。</p>
+    <p>“属性は「<select id="q2-2-1">
+        <option value="">選択してください</option>
+        <option value="B">属性名</option>
+        <option value="C">属性値</option>
+    </select>」と「<select id="q2-2-2">
+        <option value="">選択してください</option>
+        <option value="B">属性名</option>
+        <option value="C">属性値</option>
+    </select>」で構成され、「①」と「②」は「<select id="q2-2-3">
+        <option value="">選択してください</option>
+        <option value="D">=</option>
+        <option value="E">==</option>
+    </select>」で結ばれます。ただし、「②」は「<select id="q2-2-4">
+        <option value="">選択してください</option>
+        <option value="F">カギ括弧</option>
+        <option value="G">ダブルクオート</option>
+    </select>」で括られます。”</p>
 
-        <h3>c) 不審なリンクや添付ファイルの警戒</h3>
-        <div class="recommendation">
-            <strong>推奨：</strong>
-            <p>不審なメールやメッセージに含まれるリンクや添付ファイルを開かないように注意しましょう。</p>
-        </div>
-        
-        <h3>d) バックアップの実施</h3>
-        <div class="recommendation">
-            <strong>推奨：</strong>
-            <p>重要なデータは定期的にバックアップを取り、ランサムウェアの攻撃に備えましょう。</p>
-        </div>
-        
-        <h2>結論</h2>
-        <p>マルウェアの脅威は日々進化し続けています。しかし、適切な対策と継続的な警戒があれば、そのリスクを大幅に軽減することができます。この記事で紹介した事例や対策を参考に、自身のデジタルセキュリティを見直してみてください。</p>
-        <p>安全なデジタルライフは、一人一人の意識と行動から始まります。常に最新の情報を入手し、セキュリティ対策を習慣化することで、マルウェアの脅威から自身を守りましょう。</p>
-    </div>
+    <h2>2-3 記述式</h2>
+    <p>次のHTML文の空欄部分に当てはまる言葉を埋めなさい。</p>
+    <pre>
+&lt;!DOCTYPE <input type="text" id="q2-3-1">&gt;
+&lt;html lang="<input type="text" id="q2-3-2">"&gt;
+&lt;head&gt;
+    &lt;meta charset="<input type="text" id="q2-3-3">"&gt;
+    &lt;<input type="text" id="q2-3-4">&gt;タイトル&lt;/<input type="text" id="q2-3-4">&gt;
+    &lt;<input type="text" id="q2-3-5">&gt;
+    &lt;img src="http://www.takushoku-u.ac.jp/common/images/logo.png" alt="拓殖大学"&gt;
+    拓殖大学のWebページは&lt;a href="http://www.takushoku-u.ac.jp/"&gt;こちら&lt;/a&gt;です。
+    &lt;/<input type="text" id="q2-3-5">&gt;
+    &lt;/head&gt;
+</pre>
 
-    <div id="warning-placeholder" class="hidden"></div>
+    <button onclick="checkAnswers()">解答を提出</button>
+
+    <div id="result"></div>
+
+    <script>
+        function checkAnswers() {
+            const answers = {
+                "q1-1-1": "リクエスト",
+                "q1-1-2": "レスポンス",
+                "q1-1-3": "HTML",
+                "q1-1-4": "HyperText Markup Language",
+                "q1-1-5": "表示",
+                "q2-1-1": "B",
+                "q2-1-2": "D",
+                "q2-1-3": "C",
+                "q2-1-4": "A",
+                "q2-2-1": "B",
+                "q2-2-2": "C",
+                "q2-2-3": "D",
+                "q2-2-4": "G",
+                "q2-3-1": "html",
+                "q2-3-2": "ja",
+                "q2-3-3": "utf-8",
+                "q2-3-4": "title",
+                "q2-3-5": "body"
+            };
+
+            let resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "<h2>解答結果</h2>";
+            let correctCount = 0;
+
+            for (let key in answers) {
+                let userAnswer = (key.startsWith("q2-1") || key.startsWith("q2-2")) 
+                    ? document.getElementById(key).value 
+                    : document.getElementById(key).value.trim();
+                let correctAnswer = answers[key];
+
+                if (userAnswer === correctAnswer) {
+                    resultDiv.innerHTML += `<p class="correct">${key}：正解</p>`;
+                    correctCount++;
+                } else {
+                    resultDiv.innerHTML += `<p class="incorrect">${key}：不正解 (正解: ${correctAnswer})</p>`;
+                }
+            }
+
+            resultDiv.innerHTML += `<p>正解数: ${correctCount} / ${Object.keys(answers).length}</p>`;
+        }
+    </script>
 </body>
 </html>
