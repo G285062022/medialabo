@@ -8,11 +8,27 @@
         body { font-family: Arial, sans-serif; margin: 20px; }
         .question { margin-bottom: 20px; }
         .result { font-weight: bold; color: #d9534f; margin-top: 10px; }
+        .correct { color: #5cb85c; }
         .button { padding: 10px 20px; font-size: 16px; }
-        .explanation { margin-top: 10px; font-style: italic; color: #333; }
-        .correct { color: red; }
     </style>
     <script>
+        function checkAnswer(questionNumber, correctOption) {
+            const selectedOption = document.querySelector(`input[name="q${questionNumber}"]:checked`);
+            const resultElement = document.getElementById(`result${questionNumber}`);
+            if (!selectedOption) {
+                resultElement.textContent = "解答を選択してください。";
+                resultElement.className = "result";
+                return;
+            }
+            if (selectedOption.value === correctOption) {
+                resultElement.textContent = "正解です！";
+                resultElement.className = "result correct";
+            } else {
+                resultElement.textContent = "不正解です。" + explanations[questionNumber - 1];
+                resultElement.className = "result";
+            }
+        }
+
         const explanations = [
             "APIはアプリケーション同士がやり取りするためのインターフェースです。",
             "GETはデータの取得に使われ、POSTはデータの作成に使われます。",
@@ -31,158 +47,155 @@
             "faviconはブラウザタブに表示される小さなアイコンです。",
             "クッキーはクライアント側に保存される小さなデータです。"
         ];
-
-        function checkAnswers() {
-            let score = 0;
-            let results = "";
-
-            for (let i = 1; i <= 16; i++) {
-                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
-                const questionDiv = document.querySelector(`.question:nth-child(${i * 2 - 1})`);
-
-                if (!selectedOption) {
-                    results += `問題${i}: 解答を選択してください。<br>`;
-                    continue;
-                }
-                const correctOption = document.querySelector(`input[name="q${i}"][value="b"]`); // 正解は常に'b'と仮定
-                if (selectedOption.value === correctOption.value) {
-                    score++;
-                    results += `問題${i}: 正解です！<br>`;
-                } else {
-                    results += `問題${i}: 不正解です。<br>`;
-                    const explanation = document.createElement("div");
-                    explanation.classList.add("explanation");
-                    explanation.innerHTML = `正しい答え: <span class="correct">${correctOption.nextSibling.nodeValue.trim()}</span><br>${explanations[i - 1]}`;
-                    questionDiv.appendChild(explanation);
-                }
-            }
-
-            results += `<br>あなたのスコア: ${score}/16`;
-            document.getElementById("results").innerHTML = results;
-        }
     </script>
 </head>
 <body>
 
     <h1>テスト対策問題</h1>
 
-    <form id="quiz">
-        <div class="question">
-            <h2>問題1: APIとは何か？</h2>
-            <label><input type="radio" name="q1" value="a"> アプリケーションとユーザーの接続方法</label><br>
-            <label><input type="radio" name="q1" value="b"> アプリケーション同士がやり取りするためのインターフェース</label><br>
-            <label><input type="radio" name="q1" value="c"> インターネット接続のセキュリティプロトコル</label><br>
-        </div>
+    <div class="question">
+        <h2>問題1: APIとは何か？</h2>
+        <label><input type="radio" name="q1" value="a"> アプリケーションとユーザーの接続方法</label><br>
+        <label><input type="radio" name="q1" value="b"> アプリケーション同士がやり取りするためのインターフェース</label><br>
+        <label><input type="radio" name="q1" value="c"> インターネット接続のセキュリティプロトコル</label><br>
+        <button onclick="checkAnswer(1, 'b')" class="button">解答</button>
+        <div id="result1" class="result"></div>
+    </div>
 
-        <div class="question">
-            <h2>問題2: GETとPOSTの違いは？</h2>
-            <label><input type="radio" name="q2" value="a"> GETはデータの取得、POSTはデータの作成</label><br>
-            <label><input type="radio" name="q2" value="b"> GETはデータの更新、POSTはデータの取得</label><br>
-            <label><input type="radio" name="q2" value="c"> GETとPOSTは同じ役割</label><br>
-        </div>
+    <div class="question">
+        <h2>問題2: GETとPOSTの違いは？</h2>
+        <label><input type="radio" name="q2" value="a"> GETはデータの取得、POSTはデータの作成</label><br>
+        <label><input type="radio" name="q2" value="b"> GETはデータの更新、POSTはデータの取得</label><br>
+        <label><input type="radio" name="q2" value="c"> GETとPOSTは同じ役割</label><br>
+        <button onclick="checkAnswer(2, 'a')" class="button">解答</button>
+        <div id="result2" class="result"></div>
+    </div>
 
-        <div class="question">
-            <h2>問題3: 404 Not Foundとは？</h2>
-            <label><input type="radio" name="q3" value="a"> リクエストが正常に処理された</label><br>
-            <label><input type="radio" name="q3" value="b"> サーバー側でエラーが発生した</label><br>
-            <label><input type="radio" name="q3" value="c"> リクエストされたリソースが存在しない</label><br>
-        </div>
+    <div class="question">
+        <h2>問題3: 404 Not Foundとは？</h2>
+        <label><input type="radio" name="q3" value="a"> リクエストが正常に処理された</label><br>
+        <label><input type="radio" name="q3" value="b"> サーバー側でエラーが発生した</label><br>
+        <label><input type="radio" name="q3" value="c"> リクエストされたリソースが存在しない</label><br>
+        <button onclick="checkAnswer(3, 'c')" class="button">解答</button>
+        <div id="result3" class="result"></div>
+    </div>
 
-        <div class="question">
-            <h2>問題4: HTTPSの特徴は？</h2>
-            <label><input type="radio" name="q4" value="a"> 通信を暗号化し、安全性を高める</label><br>
-            <label><input type="radio" name="q4" value="b"> インターネット接続を高速化する</label><br>
-            <label><input type="radio" name="q4" value="c"> ページのレイアウトを管理する</label><br>
-        </div>
+    <div class="question">
+        <h2>問題4: HTTPSの特徴は？</h2>
+        <label><input type="radio" name="q4" value="a"> 通信を暗号化し、安全性を高める</label><br>
+        <label><input type="radio" name="q4" value="b"> インターネット接続を高速化する</label><br>
+        <label><input type="radio" name="q4" value="c"> ページのレイアウトを管理する</label><br>
+        <button onclick="checkAnswer(4, 'a')" class="button">解答</button>
+        <div id="result4" class="result"></div>
+    </div>
 
-        <div class="question">
-            <h2>問題5: 強調表示に使うタグはどれか？</h2>
-            <label><input type="radio" name="q5" value="a"> &lt;mark&gt;</label><br>
-            <label><input type="radio" name="q5" value="b"> &lt;s&gt;</label><br>
-            <label><input type="radio" name="q5" value="c"> &lt;em&gt;や&lt;strong&gt;</label><br>
-        </div>
+    <div class="question">
+        <h2>問題5: 強調表示に使うタグはどれか？</h2>
+        <label><input type="radio" name="q5" value="a"> &lt;mark&gt;</label><br>
+        <label><input type="radio" name="q5" value="b"> &lt;s&gt;</label><br>
+        <label><input type="radio" name="q5" value="c"> &lt;em&gt;や&lt;strong&gt;</label><br>
+        <button onclick="checkAnswer(5, 'c')" class="button">解答</button>
+        <div id="result5" class="result"></div>
+    </div>
 
-        <div class="question">
-            <h2>問題6: HTMLフォームのaction属性とmethod属性の役割は？</h2>
-            <label><input type="radio" name="q6" value="a"> actionはボタンの色を指定し、methodは送信形式を指定する</label><br>
-            <label><input type="radio" name="q6" value="b"> actionは送信先URLを指定し、methodは送信方式を指定する</label><br>
-            <label><input type="radio" name="q6" value="c"> actionはレイアウトを指定し、methodはフォームの大きさを指定する</label><br>
-        </div>
+    <div class="question">
+        <h2>問題6: HTMLフォームのaction属性とmethod属性の役割は？</h2>
+        <label><input type="radio" name="q6" value="a"> actionはボタンの色を指定し、methodは送信形式を指定する</label><br>
+        <label><input type="radio" name="q6" value="b"> actionは送信先URLを指定し、methodは送信方式を指定する</label><br>
+        <label><input type="radio" name="q6" value="c"> actionはレイアウトを指定し、methodはフォームの大きさを指定する</label><br>
+        <button onclick="checkAnswer(6, 'b')" class="button">解答</button>
+        <div id="result6" class="result"></div>
+    </div>
 
-        <div class="question">
-            <h2>問題7: inputタグのtype属性で「email」を指定するとどうなるか？</h2>
-            <label><input type="radio" name="q7" value="a"> メール形式のみ許容される</label><br>
-            <label><input type="radio" name="q7" value="b"> 電話番号のみ許容される</label><br>
-            <label><input type="radio" name="q7" value="c"> 暗号化された入力が求められる</label><br>
-        </div>
+    <div class="question">
+        <h2>問題7: inputタグのtype属性で「email」を指定するとどうなるか？</h2>
+        <label><input type="radio" name="q7" value="a"> メール形式のみ許容される</label><br>
+        <label><input type="radio" name="q7" value="b"> 電話番号のみ許容される</label><br>
+        <label><input type="radio" name="q7" value="c"> 暗号化された入力が求められる</label><br>
+        <button onclick="checkAnswer(7, 'a')" class="button">解答</button>
+        <div id="result7" class="result"></div>
+    </div>
 
-        <div class="question">
-            <h2>問題8: selectタグで複数選択を可能にするには？</h2>
-            <label><input type="radio" name="q8" value="a"> multiple属性を付ける</label><br>
-            <label><input type="radio" name="q8" value="b"> select属性を付ける</label><br>
-            <label><input type="radio" name="q8" value="c"> option属性を付ける</label><br>
-        </div>
+    <div class="question">
+        <h2>問題8: selectタグで複数選択を可能にするには？</h2>
+        <label><input type="radio" name="q8" value="a"> multiple属性を付ける</label><br>
+        <label><input type="radio" name="q8" value="b"> select属性を付ける</label><br>
+        <label><input type="radio" name="q8" value="c"> option属性を付ける</label><br>
+        <button onclick="checkAnswer(8, 'a')" class="button">解答</button>
+        <div id="result8" class="result"></div>
+    </div>
 
-        <div class="question">
-            <h2>問題9: buttonタグとinput type="submit"タグの違いは？</h2>
-            <label><input type="radio" name="q9" value="a"> buttonは画像を表示できるが、inputはできない</label><br>
-            <label><input type="radio" name="q9" value="b"> buttonはJavaScriptと連携しやすいが、inputはそうでない</label><br>
-            <label><input type="radio" name="q9" value="c"> 両者は同じ機能を持つ</label><br>
-        </div>
+    <div class="question">
+        <h2>問題9: buttonタグとinput type="submit"タグの違いは？</h2>
+        <label><input type="radio" name="q9" value="a"> buttonはデザイン専用、submitは送信用</label><br>
+        <label><input type="radio" name="q9" value="b"> buttonはカスタム可能、submitはフォーム送信に特化</label><br>
+        <label><input type="radio" name="q9" value="c"> 両方同じ</label><br>
+        <button onclick="checkAnswer(9, 'b')" class="button">解答</button>
+        <div id="result9" class="result"></div>
+    </div>
 
-        <div class="question">
-            <h2>問題10: meterタグとprogressタグの違いは？</h2>
-            <label><input type="radio" name="q10" value="a"> meterは範囲内の値、progressは進行状況を示す</label><br>
-            <label><input type="radio" name="q10" value="b"> meterは進行状況を示し、progressは範囲内の値</label><br>
-            <label><input type="radio" name="q10" value="c"> 両者は同じ機能を持つ</label><br>
-        </div>
+    <div class="question">
+        <h2>問題10: meterとprogressの違いは？</h2>
+        <label><input type="radio" name="q10" value="a"> meterは進行状況、progressは範囲内の値</label><br>
+        <label><input type="radio" name="q10" value="b"> meterは範囲内の値、progressは進行状況</label><br>
+        <label><input type="radio" name="q10" value="c"> 両方とも同じ</label><br>
+        <button onclick="checkAnswer(10, 'b')" class="button">解答</button>
+        <div id="result10" class="result"></div>
+    </div>
 
-        <div class="question">
-            <h2>問題11: リクエストとレスポンスの違いは？</h2>
-            <label><input type="radio" name="q11" value="a"> リクエストはクライアントからサーバーへ、レスポンスはサーバーからクライアントへ</label><br>
-            <label><input type="radio" name="q11" value="b"> リクエストはサーバーからクライアントへ、レスポンスはクライアントからサーバーへ</label><br>
-            <label><input type="radio" name="q11" value="c"> リクエストとレスポンスは同じもの</label><br>
-        </div>
+    <div class="question">
+        <h2>問題11: リクエストとレスポンスの違いは？</h2>
+        <label><input type="radio" name="q11" value="a"> リクエストはサーバからクライアントへ送信される</label><br>
+        <label><input type="radio" name="q11" value="b"> リクエストはクライアントからサーバへ、レスポンスはサーバからクライアントへ送信される</label><br>
+        <label><input type="radio" name="q11" value="c"> 両方ともクライアントから送信される</label><br>
+        <button onclick="checkAnswer(11, 'b')" class="button">解答</button>
+        <div id="result11" class="result"></div>
+    </div>
 
-        <div class="question">
-            <h2>問題12: HTML, CSS, JavaScriptの役割は？</h2>
-            <label><input type="radio" name="q12" value="a"> HTMLは構造、CSSはスタイル、JavaScriptは動作を制御する</label><br>
-            <label><input type="radio" name="q12" value="b"> HTMLはデザイン、CSSは構造、JavaScriptはデータを保存する</label><br>
-            <label><input type="radio" name="q12" value="c"> HTMLは動作、CSSは構造、JavaScriptはスタイルを指定する</label><br>
-        </div>
+    <div class="question">
+        <h2>問題12: HTML, CSS, JavaScriptの役割の違いは？</h2>
+        <label><input type="radio" name="q12" value="a"> HTMLはスタイル、CSSは構造、JavaScriptは動作を制御</label><br>
+        <label><input type="radio" name="q12" value="b"> HTMLは構造、CSSはスタイル、JavaScriptは動作を制御</label><br>
+        <label><input type="radio" name="q12" value="c"> HTMLは動作、CSSは構造、JavaScriptはスタイル</label><br>
+        <button onclick="checkAnswer(12, 'b')" class="button">解答</button>
+        <div id="result12" class="result"></div>
+    </div>
 
-        <div class="question">
-            <h2>問題13: AJAXとは？</h2>
-            <label><input type="radio" name="q13" value="a"> 非同期通信を可能にする技術</label><br>
-            <label><input type="radio" name="q13" value="b"> リアルタイム通信を行うための技術</label><br>
-            <label><input type="radio" name="q13" value="c"> ウェブサイトのデザインを変更する技術</label><br>
-        </div>
+    <div class="question">
+        <h2>問題13: AJAXの主な機能は？</h2>
+        <label><input type="radio" name="q13" value="a"> HTML文書の構造を作成する</label><br>
+        <label><input type="radio" name="q13" value="b"> ページをリロードせずに非同期通信を行う</label><br>
+        <label><input type="radio" name="q13" value="c"> CSSを利用してスタイルを適用する</label><br>
+        <button onclick="checkAnswer(13, 'b')" class="button">解答</button>
+        <div id="result13" class="result"></div>
+    </div>
 
-        <div class="question">
-            <h2>問題14: ローカルホストとは？</h2>
-            <label><input type="radio" name="q14" value="a"> 外部サーバーを指す</label><br>
-            <label><input type="radio" name="q14" value="b"> 開発者のコンピュータを指す</label><br>
-            <label><input type="radio" name="q14" value="c"> インターネット接続を指す</label><br>
-        </div>
+    <div class="question">
+        <h2>問題14: ローカルホストとは？</h2>
+        <label><input type="radio" name="q14" value="a"> サーバ上にある特定のドメイン</label><br>
+        <label><input type="radio" name="q14" value="b"> インターネットのセキュリティプロトコル</label><br>
+        <label><input type="radio" name="q14" value="c"> 開発者のコンピュータを指す</label><br>
+        <button onclick="checkAnswer(14, 'c')" class="button">解答</button>
+        <div id="result14" class="result"></div>
+    </div>
 
-        <div class="question">
-            <h2>問題15: faviconとは？</h2>
-            <label><input type="radio" name="q15" value="a"> ウェブサイトのセキュリティ設定</label><br>
-            <label><input type="radio" name="q15" value="b"> ブラウザタブに表示される小さなアイコン</label><br>
-            <label><input type="radio" name="q15" value="c"> ページのタイトルを示す</label><br>
-        </div>
+    <div class="question">
+        <h2>問題15: faviconとは？</h2>
+        <label><input type="radio" name="q15" value="a"> サイトのメインロゴ</label><br>
+        <label><input type="radio" name="q15" value="b"> ブラウザタブに表示される小さなアイコン</label><br>
+        <label><input type="radio" name="q15" value="c"> ページ内の見出しのアイコン</label><br>
+        <button onclick="checkAnswer(15, 'b')" class="button">解答</button>
+        <div id="result15" class="result"></div>
+    </div>
 
-        <div class="question">
-            <h2>問題16: クッキーとは？</h2>
-            <label><input type="radio" name="q16" value="a"> サーバーに保存される大きなデータ</label><br>
-            <label><input type="radio" name="q16" value="b"> クライアント側に保存される小さなデータ</label><br>
-            <label><input type="radio" name="q16" value="c"> ブラウザが自動的に削除するデータ</label><br>
-        </div>
-
-        <button type="button" class="button" onclick="checkAnswers()">結果を確認</button>
-    </form>
-
-    <div id="results" class="result"></div>
+    <div class="question">
+        <h2>問題16: クッキーとは？</h2>
+        <label><input type="radio" name="q16" value="a"> クライアント側に保存される小さなデータ</label><br>
+        <label><input type="radio" name="q16" value="b"> サーバ上に保存されるログ情報</label><br>
+        <label><input type="radio" name="q16" value="c"> ブラウザのキャッシュ</label><br>
+        <button onclick="checkAnswer(16, 'a')" class="button">解答</button>
+        <div id="result16" class="result"></div>
+    </div>
     <a href="index.html">前のページへ</a>
 </body>
 </html>
